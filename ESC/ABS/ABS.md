@@ -1,6 +1,6 @@
 # ABS control state
 
-![ABS_Control_State](..\ABS\img\ABS_control_state.png)
+![ABS_Control_State](.\img\ABS_control_state.png)
 
 ## CBTTP: ConvertBrakeTorqueToPressure(whl, brake_torque)
 
