@@ -11,8 +11,8 @@ tmp_min_gradient = Cal.min_app_torque_rate_f/r; //16
 
 // HiMu, MidMu, LowMu
 tmp_full_app_torq_inc_pct = Cal.appf_torq_inc_pct_hi_mu_f/r
-  					     or Cal.appf_torq_inc_pct_mid_mu_f/r
-  					     or Cal.appf_torq_inc_pct_low_mu_f/r; //1024
+  					   or Cal.appf_torq_inc_pct_mid_mu_f/r
+  					   or Cal.appf_torq_inc_pct_low_mu_f/r; //1024
 
 tmp_app_gradient = Cal.appf_gradient_hi_mu_f/r_1sf
   			    or Cal.appf_gradient_hi_mu_f/r
@@ -55,7 +55,6 @@ else
 }
 
 ABS_whl[].pulse_app_rate = LIMIT(tmp_app_gradient,tmp_min_gradient,tmp_max_gradient);
-
 ABS_whl[].full_app_target_torq =  MAX((ABS_in_whl[].wheel_torque + tmp_app_torque_delta),0);
 ```
 

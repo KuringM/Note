@@ -24,8 +24,8 @@ ABS_whl[].desired_cycle_tim += Cal.desired_cycle_tim_extension //1
 ```c
 // HiMu, MidMu, LowMu
 tmp_min_pulse_app_rate = Cal.appp_min_torq_rate_hi_mu_f/r
-  					  or Cal.appp_min_torq_rate_mid_mu_f/r
-  					  or Cal.appp_min_torq_rate_low_mu_f/r;// 16
+  				     or Cal.appp_min_torq_rate_mid_mu_f/r
+  				     or Cal.appp_min_torq_rate_low_mu_f/r;// 16
 
 tmp_min_pulse_app_rate = MAX(tmp_min_pulse_app_rate, Cal.min_app_torque_rate_f/r); //16
 ```
