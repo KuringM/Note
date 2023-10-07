@@ -1,7 +1,3 @@
----
-link: https://www.notion.so/WCBS-854392f5596c42139ef0a8b850505d8f
-notionID: 854392f5-596c-4213-9ef0-a8b850505d8f
----
 # WCBS
 
 **Wire Control Brake System** 线性控制制动系统
