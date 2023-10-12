@@ -1,4 +1,4 @@
-## Calculate Torque lost sum
+## `CalcTorqueLost()`
 
 ```c
 // dominant wheel is the one with large whl ax (Tcs_input.whl_ax[]);
@@ -28,7 +28,7 @@ if (ATS_mode == 1)
 torque_lost = torque_lost * torque_lost_ats_factor;
 ```
 
-## CalcInitialTorqueRequest
+## `CalcInitialTorqueRequest()`
 
 ```c
 /*==========================================================
@@ -36,7 +36,7 @@ This process calculates the powertrain torque request
 immeditely upon TCS entrance or if a surface transision
 occurs, as determined by wheel delta velocity.
 ==========================================================*/
-torque_lost_sum = torque_lost;
+torque_lost_sum = CalcTorqLost(Tcs_input.gear_position, axle);
 // In avh or hhc case
 if( TCS_input_process.ah_or_hh_delay > 0
   &&TCS_input.axle_driving_torq[] > Cal.init_hh_axle_torque_thr[] //1

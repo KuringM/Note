@@ -1,9 +1,17 @@
-## Calculate `Tcs_axle[].pt_torque_request`
+## `CalcNormalTorqueRequest()`
+
+>  Calculate `Tcs_axle[].pt_torque_request`
 
 ```c
 /*============================================================
 This process calculates normal powertrain TC torque request.
 ============================================================*/
+
+// Calculate TCS PID-term
+Tcs_CalcPowertraionTcsControlVars();
+Tcs_CalcPowertrainTcsDerivativeTerm();
+Tcs_CalcPowertrainTcsProportionalTerm();
+Tcs_CalcPowertrainTcsProportionalTerm();
 
 if(Tcs_axle[].homogenous_once == 1
  ||Tcs_axle[].homogenous == 1
@@ -32,16 +40,4 @@ Tcs_axle[].pt_torque_request = Tcs_axle[].pt_integral_term /8
 
 temp_min_pt_torq = Max(Tcs_axle[].pt_torque_limit, Tcs_input.axle_driving_torq_min[]);
 Tcs_axle[].pt_torque_request = Limit(Tcs_axle[].pt_torque_request, temp_min_pt_torq, Tcs_input.driver_req_axle_torq[]);
-```
-
-## Calculate `Tcs_axle[].pt_prop_error`
-
-```C
-/*==========================================================
-This process determines powertrain TC PID control variables.
-===========================================================*/
-Tcs_whl[].delta_spd_error = Max(Tcs_input.norm_whl_spd[], Tcs_input.whl_ref_spd[]) - Tcs_whl[].engine_target_spd;
-whl_vel_err_avg = (Tcs_whl[left].delta_spd_error + Tcs_whl[right].delta_spd_error)/2;
-whl_vel_err_high = Max(Tcs_whl[left].delta_spd_error, Tcs_whl[right].delta_spd_error);
-Tcs_axle[].pt_prop_error = (whl_vel_err_avg * Tcs_veh.slip_avg_bias + whl_vel_err_high * (1024 - Tcs_veh.slip_avg_bias))/1024;
 ```
