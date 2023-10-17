@@ -13,7 +13,7 @@ GAIN_SPLIT
 GAIN_SCHEDULING_MAX*/
 if(Tcs_axle[].gain_scheduling == GAIN_INITIAL)
 {
-    Tcs_axle[].pt_first_cycle_gain = Cal.pt_1st_cycle_adjust[]; //256
+    Tcs_axle[].pt_first_cycle_gain = Cal.pt_1st_cycle_adjust_f/r; //256
 }
 else
 {
@@ -47,9 +47,9 @@ if(p_term > 0)
 	if(Tcs_input.gas_pedal_position < Cal.axl_p_tps_thr //1024
 	 &&Tcs_axle[].pt_prop_error < Cal.axl_p_tps_slip_thr) //256
 	{
-    	p_term = p_term * Tcs_input.gas_pedal_position / Max(Cal.axl_p_tps_thr, 1); 
+    	p_term = p_term * Tcs_input.gas_pedal_position / Max(Cal.axl_p_tps_thr, 1); //1024
 	}
-	if(Tcs_axle[].split_mu_conf > Cal.axl_p_split_mu_conf_adj)
+	if(Tcs_axle[].split_mu_conf > Cal.axl_p_split_mu_conf_adj) //1024
 	{
     	p_term = p_term * Cal.axl_p_split_mu_conf_adj / Tcs_axle[].split_mu_conf;
 	}
