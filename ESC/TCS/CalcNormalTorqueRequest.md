@@ -33,7 +33,7 @@ Tcs_axle[].brake_torque_comp_to_pt = Tcs_axle[].brake_torque_compensation * Cal.
 Tcs_axle[].brake_torque_comp_to_pt = Limit(Tcs_axle[].brake_torque_comp_to_pt, 0, Cal.max_pt_brktorq_comp[]); //1
 
 //Calculate PT torque request
-Tcs_axle[].pt_torque_request = Tcs_axle[].pt_integral_term /8 
+Tcs_axle[].pt_torque_request = Tcs_axle[].pt_integral_term /256 
     						- Tcs_axle[].pt_proportional_term
     						- Tcs_axle[].pt_derivation_term
     						+ Tcs_axle[].brake_torque_comp_to_pt;
