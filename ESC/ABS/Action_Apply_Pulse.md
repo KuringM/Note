@@ -3,8 +3,7 @@
 ```c
 // For a front wheel or select_low == 0, take "wheel" as index to select the proper value
 // For a reas wheel in select low. choose the highest of either rear wheel control desensitization index
-tmp = ABS_in_whl[wheel].vibration_scale;
-tmp_rough = MAX((tmp - Cal.desire_cyc_tm_rough_hyst_f/r),0); //1024/100
+tmp_rough = MAX((ABS_in_whl[wheel].vibration_scale - Cal.desire_cyc_tm_rough_hyst_f/r),0); //1024/100
 tmp_stable_interval = Lookup(Abs_input.filt_ax_general,3,Cal.desire_cycle_tm_f/r);//1
 //右移n位相当于除以 2 的 n 次方
 tmp_stable_interval = tmp_stable_interval - ((tmp_rough * Cal.desired_cyc_tm_rough_gain_f/r) >> 12); //1024/100
@@ -34,7 +33,7 @@ tmp_min_pulse_app_rate = MAX(tmp_min_pulse_app_rate, Cal.min_app_torque_rate_f/r
 
 ```c
 tmp_pulse_app_torq = MAX(ABS_whl[].wheel_lock_torque_0 - ABS_in_whl[].wheel_torque, 0);
-tmp_min_rate_cycle_time = tmp_pulse_app_torq / tmp_min_pulse_app_rate;
+tmp_min_rate_cycle_time = tmp_pulse_app_torq * 16 / tmp_min_pulse_app_rate / 1;
 
 // limit desired cycle time
 ABS_whl[].limited_desired_cycle_tim = Min(tmp_min_rate_cycle_time, ABS_whl[].desired_cycle_tim)
@@ -43,7 +42,7 @@ ABS_whl[].limited_desired_cycle_tim = Min(tmp_min_rate_cycle_time, ABS_whl[].des
 ## Update Apply rate & timeout recording to Limit desired cycle time
 
 ```c
-ABS_whl[].pulse_app_rate = tmp_pulse_app_torq / ABS_whl[].limited_desired_cycle_tim ;
+ABS_whl[].pulse_app_rate = tmp_pulse_app_torq * 16/ ABS_whl[].limited_desired_cycle_tim /1;
 ABS_whl[].app_timeout_target = ABS_whl[].limited_desired_cycle_tim
 ```
 
