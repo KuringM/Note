@@ -62,4 +62,3 @@ temp_min_torque = Max(Tcs_input.axle_drivering_torq_min_f/r, Cal.min_init_torq_r
 Tcs_axle[].pt_torque_request = Max(Tcs_input.axle_driving_torq_[]-torque_lost_sum, temp_min_torque);
 Tcs_axle[].pt_integral_term = Tcs_axle.pt_torque_request * 256;
 ```
-

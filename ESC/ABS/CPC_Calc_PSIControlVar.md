@@ -3,7 +3,7 @@
 ```c
 ABS_veh.PSI_ControlVar_S16 = ABS_in_veh.yaw_rate_filt_s16 * temp_gain_kp_s16  / (128 * 128)  //128
     				       + temp_s_PSI_int_s16 * temp_gain_ki_s16 /128 //128
-    				 	   + ABS_in_veh.yaw_rate_deriv_s16 * Cal.yc_cv_gain_kd /(64 *128) //64 128
+    				 	   + ABS_in_veh.yaw_rate_deriv_s16 * Cal.yc_cv_gain_kd /(64 *128); // 128
 ```
 
 ### Calibration temp_s_PSI_int_s16
@@ -39,7 +39,7 @@ if ( Abs_input.VabsFiltVehSpd > Cal.yc_cv_min_spd && ABS_veh.scv_enable == 1) //
 ```c
 // Todo
 temp_gain_kp_s16 = Cal.yc_cv_gain_kp;
-temp_gain_ki_s16 = 0;
+temp_gain_ki_s16 = 0; //128
 
 //
 temp_gain_kp_s16 = Cal.yc_cv_gain_kp_curve;

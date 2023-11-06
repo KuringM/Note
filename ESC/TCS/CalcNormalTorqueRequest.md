@@ -11,7 +11,7 @@ This process calculates normal powertrain TC torque request.
 Tcs_CalcPowertraionTcsControlVars();
 Tcs_CalcPowertrainTcsDerivativeTerm();
 Tcs_CalcPowertrainTcsProportionalTerm();
-Tcs_CalcPowertrainTcsProportionalTerm();
+Tcs_CalcPowertrainTcsIntergralTerm();
 
 if(Tcs_axle[].homogenous_once == 1
  ||Tcs_axle[].homogenous == 1
@@ -34,9 +34,9 @@ Tcs_axle[].brake_torque_comp_to_pt = Limit(Tcs_axle[].brake_torque_comp_to_pt, 0
 
 //Calculate PT torque request
 Tcs_axle[].pt_torque_request = Tcs_axle[].pt_integral_term /256 
-    						- Tcs_axle[].pt_proportional_term
-    						- Tcs_axle[].pt_derivation_term
-    						+ Tcs_axle[].brake_torque_comp_to_pt;
+    						 - Tcs_axle[].pt_proportional_term
+    						 - Tcs_axle[].pt_derivation_term
+    						 + Tcs_axle[].brake_torque_comp_to_pt;
 
 temp_min_pt_torq = Max(Tcs_axle[].pt_torque_limit, Tcs_input.axle_driving_torq_min[]);
 Tcs_axle[].pt_torque_request = Limit(Tcs_axle[].pt_torque_request, temp_min_pt_torq, Tcs_input.driver_req_axle_torq[]);

@@ -21,7 +21,8 @@ else
 }
 
 temp_gain = temp_gain * Tcs_axle[].pt_first_cycle_gain /256;
-temp_gain = temp_gain * Tcs_axle[].pt_torq_mod_gain /1024;
+
+temp_gain = temp_gain * Tcs_axle[].pt_torq_mod_gain /1024; // Tcs_axle[].pt_torq_mod_gain = Lookup(Tcs_input.veh_spd, 4, Cal.ptc_mod_gain_tbl); //1024
 p_term = temp_gain * Tcs_axle[].pt_prop_error /(256*1); 
 
 if(Tcs_whl[left].delta_spd_error < avg_ramp_part

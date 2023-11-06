@@ -63,6 +63,7 @@ if(Control state == ACTION_SPIL_RELEASE)
     // 计算泄压时间  ABS_whl[].yc_dumptim_copied_s16
     if( Abs_input.PlgPresVld != 0)
     {
+        // load base dump copy limit as a function of VSPD
         dump_time_limit_s16 = LookUpTable(Abs_input.VabsFiltVehSpd,3, cal.yc_vspd_to_ducopy_tm_tbl) //4
     }
     else
@@ -73,6 +74,7 @@ if(Control state == ACTION_SPIL_RELEASE)
 else
 {
     // Calibate the dump torq change percent for State yc high to split dump
+    // load temp variables for state STATE_YC_HIGH_TO_SPLIT_DUMP
     final_dumpcopy_limit = Max(yaw_dumpcopy_limit, Cal.yc_h2s_ducopy_lim); //1024
     dump_time_limit_s16 = 0;
 }
@@ -87,8 +89,10 @@ if ( ABS_whl[].[opp_whl].dump_torq_change_percent > ABS_whl[].yc_dump_perc_copie
     // assign & upper limit yc_dump_perc_copied_s16 
     ABS_whl[].yc_dump_perc_copied_s16 = MIN(ABS_whl[opp_whl].dump_torq_change_percent, final_dumpcopy_limit)
 }
-else if ( /*Todo*/)
+else if ( ABS_whl[oppo].control_state[0] == ACTION_ESC_HOLD
+        &&ABS_whl[oppo].control_state[0] == ACTION_ESC_APPLY)
 {
-    
+    ABS_whl[].yc_dump_perc_copied_s16 = final_dumpcopy_limit;
+    ABS_whl[].yc_dumptim_copied_s16 = dump_time_limit_s16;
 }
 ```
