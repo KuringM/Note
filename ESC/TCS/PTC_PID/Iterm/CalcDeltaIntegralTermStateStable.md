@@ -32,7 +32,7 @@ if(Tcs_axle[].slip_state == STATE_STABLE)
         first_wheel_accel = 1;
     }
     
-    if(fast_wheel_ax > temp_veh_ax_low_res + Cal.ax_thr_1st_whl_accel[]
+    if(fast_wheel_ax > temp_veh_ax_low_res + Cal.ax_thr_1st_whl_accel[] //32
      ||first_wheel_accel = 1)
     {
         Tcs_axle[].first_wheel_decel_stable_state = 0;
@@ -46,12 +46,12 @@ if(Tcs_axle[].slip_state == STATE_STABLE)
     temp_stable_soon_slip_thr = temp_stable_soon_slip_thr * fast_range /1024;
     
     //Calculate `Tcs_axle[].noslip_time`
-    if(fast_wheel_ax > Tcs_input.veh_ax * 32/256 + Cal.must_stable_whl_ax_thr_f/r //32
-       &&(fast_wheel_ax > Tcs_input.veh_ax * 32/256 + Cal.stable_whl_ax_thr_f/r //32
-        ||fast_slip > temp_depart_soon_slip_thr))
+    if(    fast_wheel_ax > Tcs_input.veh_ax * 32/256 + Cal.must_stable_whl_ax_thr_f/r //32
+        &&(fast_wheel_ax > Tcs_input.veh_ax * 32/256 + Cal.stable_whl_ax_thr_f/r //32
+         ||fast_slip > temp_depart_soon_slip_thr))
     ||(Tcs_input.bend_detect_estimate > Cal.too_stable_bend_thr //1024
-       &&(Tcs_input.os_us_metric < -Cal.too_stable_us_the && axle == F //1024
-       	  ||Tcs_input.os_us_metric > Cal.too_stable_us_the && axle == R) //1024
+       &&(  Tcs_input.os_us_metric < -Cal.too_stable_us_thr && axle == F //1024
+       	  ||Tcs_input.os_us_metric > Cal.too_stable_us_thr && axle == R) //1024
        &&Tcs_axle[].first_wheel_decel_stable_state == 0)
     {
         whl_depart_soon = 1;
@@ -59,8 +59,8 @@ if(Tcs_axle[].slip_state == STATE_STABLE)
     }
     else if(fast_slip < temp_stable_soon_slip_thr
             &&(Tcs_input.bend_detect_estimate < Cal.too_stable_bend_low_thr //1024
-               ||(Tcs_input.os_us_metric > -Cal.too_stable_low_the && axle == F //1024
-      	    	  ||Tcs_input.os_us_metric < Cal.too_stable_low_the && axle == R)))
+               ||(Tcs_input.os_us_metric > -Cal.too_stable_us_low_thr && axle == F //1024
+      	    	  ||Tcs_input.os_us_metric < Cal.too_stable_os_low_thr && axle == R)))
     {
         if(Tcs_whl[left].stable_time <= Cal.whl_stable_time_thr_f/r //1
            ||Tcs_whl[right].stable_time <= Cal.whl_stable_time_thr_f/r) //1

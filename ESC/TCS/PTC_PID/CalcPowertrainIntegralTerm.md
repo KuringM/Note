@@ -13,7 +13,7 @@ if( Tcs_axle[].split_slip_on_old == 0 && Tcs_axle[].split_slip_on_high ==1)
     Tcs_axle[].himu_slip_reduce_torque = Tcs_axle[].pt_torque_requst * temp_himu_reduce_gain /1024;
     Tcs_axle[].himu_slip_reduce_torque = Max(Tcs_axle[].himu_slip_reduce_torque , Cal.axle_int_high_mu_min[]); //1
 
-    if( Tcs_input.veh_ax > Cal.axle_int_high_mu_ax_thr)
+    if( Tcs_input.veh_ax > Cal.axle_int_high_mu_ax_thr) //256
     {
         Tcs_axle[].himu_slip_reduce_torque = Tcs_axle[].himu_slip_reduce_torque /2;
     }
