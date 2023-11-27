@@ -2,27 +2,32 @@
 
 ```c
 low_to_high_flag = LowToHighDetect();
-
-if (ABS_whl[].whl_cycle_control == 1) && (ABS_whl[].split_adjusted_veh_decel >= Cal.srf_vacl_let_l2h_detct) //256
+// ABS_whl[].whl_surf_jump_state == WHL_NO_TRANSITION
+if (ABS_whl[].whl_cycle_control == 1)
+&& (ABS_whl[].split_adjusted_veh_decel >= Cal.srf_vacl_let_l2h_detct) //256
  // L2H detected by whl accl peak 
-    && (low_to_high_flag == 1)
-    || (
- // L2H detected by slip integral
- (Abs_input.PlgPresVld == 0||(Abs_input.PlgPresVld == 1 && Abs_input.PlgCldPress > Cal.srf_mcp_let_l2h_detct)) //16
-&&(
-	(temp_l2h_from_slip_integral_flag == 1 && Abs_input.SupplementActive == 0) 
- // L2H detected by torq overshoot
-   ||(
-   		ABS_whl.slip_phase == SLIP_ABOVE_THR 
-    &&(
-        (ABS_whl.number_of_cycle >1 
-     && ABS_whl.wheel_lock_torq_overshoot_pct >= Cal.srf_delp_perr_let_12h_detct) //1024
-     || ABS_whl.wheel_lock_torq_overshoot_pct >= Cal.srf_delp_perr_let_12h_detct2 //1024
-      ) 
-    && (ABS_whl[].wheel_lock_torq_overshoot >= temp_l2h_whl_overshoot_thr)
-     )
-   )
+&& (    (low_to_high_flag == 1)
+    ||  (    // L2H detected by slip integral
+        (
+            (Abs_input.PlgPresVld == 0)
+         || (Abs_input.PlgPresVld == 1 && Abs_input.PlgCldPress > Cal.srf_mcp_let_l2h_detct) //16
+        ) 
+        &&(
+	        (temp_l2h_from_slip_integral_flag == 1 && Abs_input.SupplementActive == 0) 
+            // L2H detected by torq overshoot
+            || (
+   		        ABS_whl.slip_phase == SLIP_ABOVE_THR 
+                &&(
+                    (   ABS_whl.number_of_cycle >1 
+                        && ABS_whl.wheel_lock_torq_overshoot_pct >= Cal.srf_delp_perr_let_12h_detct //1024
+                    ) 
+                    || ABS_whl.wheel_lock_torq_overshoot_pct >= Cal.srf_delp_perr_let_12h_detct2 //1024
+                ) 
+                && (ABS_whl[].wheel_lock_torq_overshoot >= temp_l2h_whl_overshoot_thr)
+                )
+          )
        )
+    )
 {
     ABS_whl[].whl_surf_jump_state = 1; // WHL_L2H_TRANSITION
 }
