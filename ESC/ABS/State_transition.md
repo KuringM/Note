@@ -1,4 +1,5 @@
-## CASE in ACTION_PULSED_RELEASE 
+## CASE in ACTION_PULSED_RELEASE
+
 ```c
 if (ABS_veh.moving == 0) { ABS_whl[].control_state[0] = ACTION_EOS_APPLY;}
 #if (ABS_CPC_CONTROL == on)
@@ -26,6 +27,7 @@ else
 ```
 
 ## CASE in ACTION_RECOV_APPLY
+
 ```c
 // whl = WHL INDEX SLCT LOW HIGH DECEL in rear wheels
 // Abs_input.WabsFiltWhlAx[whl]
