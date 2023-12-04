@@ -61,3 +61,14 @@ Util_Filter(xk, *states, *coeff)
     return yk;
 }
 ```
+
+### ABS_CYCLE_STATUS_TYPE_TAG (ABS_whl[].slip_phase)
+- SLIP_ABOVE_THR=0
+- SLIP_UNDER_THR
+- SLIP_PHASE_TRANS
+- SLIP_PHASE_TRANS_CONFIM
+
+### ABS_whl[].whl_surf_jump_state
+- WHL_NO_TRANSITION 0
+- WHL_L2H_TRANSITION 1
+- WHL_H2L_TRANSITION

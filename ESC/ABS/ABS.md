@@ -2,12 +2,6 @@
 
 ![ABS_Control_State](./img/ABS_control_state.png)
 
-### ABS_CYCLE_STATUS_TYPE_TAG (ABS_whl[].slip_phase)
-- SLIP_ABOVE_THR=0
-- SLIP_UNDER_THR
-- SLIP_PHASE_TRANS
-- SLIP_PHASE_TRANS_CONFIM
-
 ### Calculate `ABS_whl.t_yc_dump_copy_intrrpt_tim_s16`
 
 ```c
