@@ -45,15 +45,6 @@ if( Tcs_input_process.ycs_intervent_torque_ratio[axle] != 0)
       Tcs_axle[].pt_delta_integral_term = Min(Tcs_axle[].pt_delta_integral_term, 0);
     }
   }
-    /*
-    FWD
-    AWD
-    NEUTRAL
-    HIGH_RANGE_4x4
-    LOW_RANGE_4x4
-    AWD
-    AWD_RANGE
-    */
   else if( Tcs_axle[].pt_prop_error < Cal.two_whl_spd_error_recovery_thr[]) //256
         && ( Tcs_input.drivetrain != AWD
           || axle == front && Tcs_input.os_us_metric > -Cal.os_us_adjust_us_thr  //1024

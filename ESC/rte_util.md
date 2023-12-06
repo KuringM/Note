@@ -71,4 +71,25 @@ Util_Filter(xk, *states, *coeff)
 ### ABS_whl[].whl_surf_jump_state
 - WHL_NO_TRANSITION 0
 - WHL_L2H_TRANSITION 1
-- WHL_H2L_TRANSITION
+- WHL_H2L_TRANSITION 2
+
+### Tcs_axle[].pt_torq_request_mode
+- PTC_EXIT 0
+- PTC_INITIAL 1
+- PTC_NORMAL  2
+- PTC_RAMPOUT 3
+- PTC_STATE_MAX 4
+
+### Tcs_input.drivetrain
+- FWD
+- AWD
+- NEUTRAL
+- HIGH_RANGE_4x4
+- LOW_RANGE_4x4
+- AWD
+- AWD_RANGE
+
+### Tcs_axle[].slip_state
+- STATE_STABLE 0
+- STATE_SPLIT 1
+- STATE_HOMOGENEOUS 2

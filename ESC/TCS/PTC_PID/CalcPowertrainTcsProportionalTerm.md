@@ -73,11 +73,6 @@ if(Tcs_input.axle_shudd_detect[] == 1
 
 p_term = Limit(p_term, Cal.axl_p_lim_min[], Cal.axl_p_lim_max[]); //1 1
 
-/*PTC_EXIT  0
-PTC_INITIAL 1
-PTC_NORMAL  2
-PTC_RAMPOUT 3
-PTC_STATE_MAX 4*/
 if(Tcs_axle[].pt_torq_request_mode_old == PTC_NORMAL //2
  &&Tcs_input.tcs_axle_oscill[] == 1)
 {

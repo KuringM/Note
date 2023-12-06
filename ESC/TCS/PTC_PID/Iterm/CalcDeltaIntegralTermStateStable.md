@@ -10,12 +10,8 @@ fast_slip = 0;
 fast_range = 0;
 fast_wheel_ax = 0;
 no_slip_time = 3000;
-/*
-STATE_STABLE 0
-STATE_SPLIT 1
-STATE_HOMOGENEOUS 2
-*/
-if(Tcs_axle[].slip_state == z)
+
+if(Tcs_axle[].slip_state == STATE_STABLE)
 {
   temp_veh_ax_low_res = Max(Tcs_input.veh_ax * 32 /256, 0);
   
