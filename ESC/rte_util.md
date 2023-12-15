@@ -93,3 +93,9 @@ Util_Filter(xk, *states, *coeff)
 - STATE_STABLE 0
 - STATE_SPLIT 1
 - STATE_HOMOGENEOUS 2
+
+### Tcs_axle[].gain_scheduling
+- GAIN_INITIAL
+- GAIN_NORMAL
+- GAIN_SPLIT
+- GAIN_SCHEDULING_MAX

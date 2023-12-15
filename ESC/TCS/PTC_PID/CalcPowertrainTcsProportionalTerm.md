@@ -7,10 +7,7 @@ This process calculates powertrain TC proportional term.
 temp_gain = Cal.pt_prop_gain_f/r_[gear]; //1
 avg_ramp_part = Lookup(Tcs_input.veh_spd, 4, Cal.axl_p_exc_slip_f/r_tbl); //256
 
-/*GAIN_INITIAL
-GAIN_NORMAL
-GAIN_SPLIT
-GAIN_SCHEDULING_MAX*/
+
 if(Tcs_axle[].gain_scheduling == GAIN_INITIAL)
 {
   Tcs_axle[].pt_first_cycle_gain = Cal.pt_1st_cycle_adjust_f/r; //256
