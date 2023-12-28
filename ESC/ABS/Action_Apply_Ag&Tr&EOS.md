@@ -1,4 +1,4 @@
-## Calibrat Aggressive apply
+## Calibrate Aggressive apply
 
 ```c
 ABS_whl[].pulse_app_rate = Cal.appa_rate_f/r; //16
@@ -6,6 +6,7 @@ ABS_whl[].app_timeout_target = Cal.appa_timeout_target_f/r; //1
 ```
 
 ## Calibrate Transition Apply
+
 ```c
 // Action of the opposite side wheel is in Transition action or Aggressive action , or opposite side wheel not in ABS cycle
 ABS_whl[].pulse_app_rate = Cal.appt_rate_f/r; //16
@@ -37,7 +38,7 @@ ABS_whl[].pulse_app_rate = ABS_whl[].pulse_app_rate * temp_eos_aply_rate_gain /1
 temp_eos_aply_rate_gain = Limit(ABS_whl[].pulse_app_rate,2 *16, 30 *16);
 ```
 
-## Calibrate the shutdown speed of EOS 
+## Calibrate the shutdown speed of EOS
 
 ```c
 temp_shutdown_speed = Lookup(Abs_input.filt_ax_general,3,Cal.eos_app_thr); //256/3.6
