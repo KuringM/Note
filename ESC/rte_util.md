@@ -62,6 +62,11 @@ Util_Filter(xk, *states, *coeff)
 }
 ```
 
+## SIGN(a)
+```c
+#define SIGN(a) a < 0 ? -1:1
+```
+
 ### ABS_CYCLE_STATUS_TYPE_TAG (ABS_whl[].slip_phase)
 - SLIP_ABOVE_THR=0
 - SLIP_UNDER_THR
@@ -100,7 +105,7 @@ Util_Filter(xk, *states, *coeff)
 - GAIN_SPLIT
 - GAIN_SCHEDULING_MAX
 
-## SIGN(a)
-```c
-#define SIGN(a) a < 0 ? -1:1
-```
+## Esc_upc.control_state
+- S_UPC_DISABLE
+- S_UPC_ACTIVE
+- S_UPC_RAMPOUT

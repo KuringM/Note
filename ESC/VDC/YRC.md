@@ -18,7 +18,6 @@ if (Esc_yrc.yrc_yaw_active == 0){
     }
   }
 }
-
 else{
   if (Esc_yrc.error_present == 0
   ||  SIGN(Esc_yrc.ay_yaw) != Esc_input.sign_yr
