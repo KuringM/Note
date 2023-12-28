@@ -99,3 +99,8 @@ Util_Filter(xk, *states, *coeff)
 - GAIN_NORMAL
 - GAIN_SPLIT
 - GAIN_SCHEDULING_MAX
+
+## SIGN(a)
+```c
+#define SIGN(a) a < 0 ? -1:1
+```

@@ -28,7 +28,7 @@ if( ABS_VSC_INTERFACE == 1 && ABS_in_veh.yib_sensors_valid == 1)
 ```
 
 #### spd_dumpcopy_limit & pestim_dumpcopy_limit
-> 
+
 ```c
 if(Control state == ACTION_SPIL_RELEASE)
 {
