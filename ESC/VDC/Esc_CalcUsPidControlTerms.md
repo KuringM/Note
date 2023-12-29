@@ -37,7 +37,7 @@ if Esc_sac.us_prohibited == 0 && Esc_cst.act_mode == FULL_CONTROL
 			Esc_input_process.veh_spd > cal.us_brk_spd_thr //256
 		&& Mue.mu_act_y_s16 < cal.us_brake_ay_thr
 		&&(
-			(SIGN(Esc_input.filt_yr) > 0 && Esc_input_process.sa_at_wheel > cal.us_enable_sa_at_wheel_thr)
+			(SIGN(Esc_input.filt_yr) > 0 && Esc_input_process.sa_at_wheel > cal.us_enable_sa_at_wheel_thr) //128
 			|| (SIGN(Esc_input.filt_yr) < 0 && Esc_input_process.sa_at_wheel < - cal.us_enable_sa_at_wheel_thr)
 		)
 		&& Esc_upc.us_delay_timer <= 0
