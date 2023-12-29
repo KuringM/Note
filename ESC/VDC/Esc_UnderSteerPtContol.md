@@ -11,7 +11,7 @@ else{
 Esc_upc.upc_ramp_rate = Esc_CalTorqueChangeStep();
 
 if( 
-  (Esc_input_process.veh_ spd > Esc_upc.us_entry_spd_thr
+  (Esc_input_process.veh_spd > Esc_upc.us_entry_spd_thr
   ||Esc_upc.control_active == 1)
 && Esc_input.gas_pedal_posn > cal.us_pt_throttle_thr //1024
 && Esc_cst.act_mode == FULL_CONTROL)
