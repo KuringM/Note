@@ -111,7 +111,7 @@ if(Tcs_axle[].slip_state == STATE_HOMOGENEOUS)
     }
   }
     
-  Tcs_axle[].pt_delta_integral_term = Limit(temp_delta_iterm, -Cal.axl_int_delta_min_f/r, Cal.axl_int_delta_max_f/r); //256 256
+  Tcs_axle[].pt_delta_integral_term = Limit(temp_delta_iterm, -Cal.axl_int_delta_max_f/r, Cal.axl_int_delta_max_f/r); //256 256
 }
 ```
 

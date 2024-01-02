@@ -31,6 +31,7 @@ torque_lost = torque_lost * torque_lost_ats_factor;
 ## `CalcInitialTorqueRequest()`
 
 ```c
+Tcs_axle[].pt_torq_request_mode = PTC_INITIAL
 /*==========================================================
 This process calculates the powertrain torque request
 immeditely upon TCS entrance or if a surface transision
