@@ -20,7 +20,7 @@ if(Tcs_axle[].slip_state == STATE_HOMOGENEOUS)
     temp_gain = temp_gain * Cal.pt_int_1st_cycle_adjust_f/r / 256; //256
   }
 
-  temp_delta_iterm = temp_delta_iterm * temp_gain / (4096/256); 
+  temp_delta_iterm = temp_pt_pd_term * temp_gain / (4096/256); 
   
   if( Tcs_input.whl_ax[left] < Cal.two_slip_whl_recovery_thr_f/r //32
     &&Tcs_input.whl_ax[right] < Cal.two_slip_whl_recovery_thr_f/r) //32
