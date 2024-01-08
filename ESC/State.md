@@ -2,6 +2,11 @@
 
 ![ABS_Control_State](./ABS/img/ABS_control_state.png)
 
+### ABS_veh.ab_di_desense
+- ABS_NO_DESENS 0
+- ABS_LIGHT_DESENS 1
+- ABS_HEAVY_DESENS 2
+
 ### ABS_CYCLE_STATUS_TYPE_TAG (ABS_whl[].slip_phase)
 - SLIP_ABOVE_THR 0
 - SLIP_UNDER_THR 1
