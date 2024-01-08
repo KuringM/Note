@@ -6,7 +6,7 @@
 - NM 1
 
 $$
-brake\_pressure=\frac{brake\_torque\times TORQUE\_PRESSURE\_CONV\_SF\times  BAR}{brake\_factor\times NM}
+brake\{_}pressure=\frac{brake\{_}torque\times TORQUE\{_}PRESSURE\_CONV\{_}SF\times  BAR}{brake\{_}factor\times NM}
 $$
 
 ## CPTBT:ConvertPressureToBrakeTorque(whl, brake_pressure)
@@ -66,46 +66,3 @@ Util_Filter(xk, *states, *coeff)
 ```c
 #define SIGN(a) a < 0 ? -1:1
 ```
-
-### ABS_CYCLE_STATUS_TYPE_TAG (ABS_whl[].slip_phase)
-- SLIP_ABOVE_THR=0
-- SLIP_UNDER_THR
-- SLIP_PHASE_TRANS
-- SLIP_PHASE_TRANS_CONFIM
-
-### ABS_whl[].whl_surf_jump_state
-- WHL_NO_TRANSITION 0
-- WHL_L2H_TRANSITION 1
-- WHL_H2L_TRANSITION 2
-
-### Tcs_axle[].pt_torq_request_mode
-- PTC_EXIT 0
-- PTC_INITIAL 1
-- PTC_NORMAL  2
-- PTC_RAMPOUT 3
-- PTC_STATE_MAX 4
-
-### Tcs_input.drivetrain
-- FWD
-- AWD
-- NEUTRAL
-- HIGH_RANGE_4x4
-- LOW_RANGE_4x4
-- AWD
-- AWD_RANGE
-
-### Tcs_axle[].slip_state
-- STATE_STABLE 0
-- STATE_SPLIT 1
-- STATE_HOMOGENEOUS 2
-
-### Tcs_axle[].gain_scheduling
-- GAIN_INITIAL
-- GAIN_NORMAL
-- GAIN_SPLIT
-- GAIN_SCHEDULING_MAX
-
-## Esc_upc.control_state
-- S_UPC_DISABLE
-- S_UPC_ACTIVE
-- S_UPC_RAMPOUT

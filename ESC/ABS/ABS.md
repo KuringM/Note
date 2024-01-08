@@ -1,6 +1,3 @@
-# ABS control state
-
-![ABS_Control_State](./img/ABS_control_state.png)
 
 ### Calculate `ABS_whl.t_yc_dump_copy_intrrpt_tim_s16`
 
