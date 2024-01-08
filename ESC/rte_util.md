@@ -6,7 +6,7 @@
 - NM 1
 
 $$
-brake\{_}pressure=\frac{brake\{_}torque\times TORQUE\{_}PRESSURE\_CONV\{_}SF\times  BAR}{brake\{_}factor\times NM}
+brake\_pressure=\frac{brake\_torque\times TORQUE\_PRESSURE\_CONV\_SF\times  BAR}{brake\_factor\times NM}
 $$
 
 ## CPTBT:ConvertPressureToBrakeTorque(whl, brake_pressure)
