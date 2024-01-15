@@ -28,15 +28,17 @@ ABS_whl[].dbi_slip_targ_prcnt_s16 = Max(ABS_whl[].dbi_slip_targ_prcnt_s16, Cal.d
 ## Calculation of `ABS_whl[].dbi_slip_err_prcnt_s16`
 
 ```c
+ABS_whl[].dbi_slip_err_prcnt_s16 = ABS_whl[].dbi_slip_targ_prcnt_s16 - ABS_whl[].slip_prcnt_low_spd_desense_s16;
+
 if Abs_input.VabsFiltVehSpd < Cal.sreg_vspd_desens_slp_calc // 256/3.6
 {
     // Desensitize wheel slip at lower speeds
-    ABS_whl[].dbi_slip_err_prcnt_s16 = ABS_whl[].dbi_slip_targ_prcnt_s16 - ABS_whl[].whl_slip_pct *Abs_input.VabsFiltVehSpd / Cal.sreg_vspd_desens_slp_calc
+    ABS_whl[].slip_prcnt_low_spd_desense_s16 = ABS_whl[].whl_slip_pct *Abs_input.VabsFiltVehSpd / Cal.sreg_vspd_desens_slp_calc
 }
 else
 {
     // wheel slip is not desensitized for higher speeds
-    ABS_whl[].dbi_slip_err_prcnt_s16 = ABS_whl[].dbi_slip_targ_prcnt_s16 - ABS_whl[].whl_slip_pct;
+    ABS_whl[].slip_prcnt_low_spd_desense_s16 = ABS_whl[].whl_slip_pct;
 }
 ```
 
