@@ -1,5 +1,5 @@
 ```c
-tmp_fr_slip_angle_diff = (Esc_input.filt_yr - Esc_yrc) * Esc_input.wheel_base / ( Meter /*1024*/ * 256) * ( WHL_ANGLE_DEGREES/*128*/ / DEGREE_PER_SEC/*128*/) / Esc_input_process.veh_spd;
+tmp_fr_slip_angle_diff = (Esc_input.filt_yr - Esc_yrc.swa_yaw) * Esc_input.wheel_base / ( Meter /*1024*/ * 256) * ( WHL_ANGLE_DEGREES/*128*/ / DEGREE_PER_SEC/*128*/) / Esc_input_process.veh_spd;
 
 Esc_upc.fr_slip_angle_diff_phase_delay = Util_Filter(tmp_fr_slip_angle_diff, &Filt1_upc_erroe_states, &cal.upc_error_filt_coeff ); // 1U
 
