@@ -68,7 +68,7 @@
 
 ### Tcs_input.drivetrain
 - FWD 0
-- AWD 1
+- RWD 1
 - NEUTRAL 2
 - HIGH_RANGE_4x4 3
 - LOW_RANGE_4x4 4
